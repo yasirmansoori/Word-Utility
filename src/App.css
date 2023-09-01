@@ -32,7 +32,49 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.navbar {
+  font-family: 'ADLaM Display', cursive;
+}
+
+.form-label {
+  display: block;
+  height: 60px;
+  margin: 1rem 0rem;
+  font-size: 44px;
+  background-color: #61dafb;
+  border-radius: 5px 5px 0px 0px ;
+  padding-left: 10px;
+}
+
+.form-label > p {
+  font-family: initial;
+  font-weight: 500;
+  font-stretch: expanded;
+  margin-bottom: 0px;
+}
+
+.buttons {
+  margin-top: 10px;
+}
+
+.case {
+  width: 63px;
+  height: 40px;
+  padding: 3px; 
+  margin-right: 0.5rem;
+}
+
+.case>img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.buttons > button {
+  width: 63px;
+  height: 40px;
 }
