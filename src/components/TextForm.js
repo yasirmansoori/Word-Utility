@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import Case from '../images/case.png'
 import Dustbin from '../images/dustbin.png'
 export default function TextForm(props) {
@@ -42,6 +43,36 @@ export default function TextForm(props) {
     const handleonchange = (event) => {
         setText(event.target.value);
     }
+    useEffect(() => {
+        const fetchData = async () => {
+            const encodedParams = new URLSearchParams();
+            encodedParams.set('source_language', 'auto');
+            encodedParams.set('target_language', 'hi');
+            encodedParams.set('text', 'Hello how are you');
+
+            const options = {
+                method: 'POST',
+                url: 'https://text-translator2.p.rapidapi.com/translate',
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'X-RapidAPI-Key': 'f1574e6622msh106f1fc6b98b728p1e9830jsn598711ad45dc',
+                    'X-RapidAPI-Host': 'text-translator2.p.rapidapi.com'
+                },
+                data: encodedParams,
+            };
+
+            try {
+                const response = await axios.request(options);
+                console.log(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+        return () => {
+        };
+    }, []);
     return (
         <>
             <div className="container" >
@@ -64,7 +95,7 @@ export default function TextForm(props) {
                                 <li><a onClick={handlelowclick} className="dropdown-item" href="#">lowercase</a></li>
                             </ul>
                         </div>
-
+                        <button className="btn btn-primary " onClick={handleundo} >Translate</button>
                     </div>
                 </div>
             </div >
