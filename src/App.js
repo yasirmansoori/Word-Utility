@@ -7,6 +7,7 @@ import Alert from './components/Alert';
 import About from './components/About';
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Maintanance from './Pages/Maintanance';
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -37,6 +38,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <Maintanance />
         {<Navbar title="Word-Utility" mode={mode} togglemode={togglemode} />}
         {/* <Alert alert={alert} /> */}
         <Routes>
